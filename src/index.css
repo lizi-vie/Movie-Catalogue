@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --font-family: 'Press Start 2P', cursive;
+  --primary-color: #00d0ff;
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #ff00cc;
+  --star-color: #ffcc00;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  text-align: center;
+}
+
+h1, h2 {
+  color: var(--primary-color);
+  text-shadow: 0 0 1rem var(--accent-color), 0 0 2rem var(--accent-color), 0 0 3rem var(--accent-color);
+}
+
+.navbar {
+  background-color: var(--background-color);
+  padding: 2rem 1rem;
+  border-bottom: 0.2rem solid var(--primary-color);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 3rem;
+}
+
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.2em;
+  position: relative;
+}
+
+.navbar a:before, .navbar a:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 0.2rem;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: 0.4s ease-out;
+}
+
+.navbar a:hover:before, .navbar a:hover:after {
+  width: 100%;
+}
+
+.movie-catalogue {
+  padding: 5rem 6rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 3rem;
+}
+
+.movie-item {
+  background-color: var(--background-color);
+  border: 0.2rem solid var(--primary-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 2rem var(--accent-color);
+  transition: transform 0.3s;
+  font-size: 0.5em;
+  position: relative;
+}
+
+.movie-item:hover {
+  transform: scale(1.02);
+}
+
+.movie-item .star-rating {
+  display: flex;
+  gap: 0.2rem;
+  margin-left: 1rem;
+}
+
+.movie-poster {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.movie-title {
+  font-size: 1.8em;
+  margin: 1rem 0;
+  text-shadow: 0 0 1rem var(--primary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.7rem;
+  border-radius: 0rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1rem; 
+  width: 100%;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5rem);
+}
+
+input, textarea {
+  padding: 1rem;
+  margin: 2rem 0;
+  border: 0.2rem solid var(--accent-color);
+  border-radius: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  width: calc(100% - 2rem);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Ensure that stars turn gold when checked */
+.star-rating input:checked + label {
+  color: gold;
+}
+
+/* Ensure that stars change color on hover */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: var(--primary-color);
+}
+
+
+.star-rating {
+  display: flex;
+  direction: row;
+  font-size: 1.5rem;
+}
+
+.star {
+  font-size: 1.5rem; 
+  color: var(--star-color); 
+  cursor: pointer;
+}
+
+.star-rating input {
+  display: none; 
+}
+
+.star-rating label {
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star-rating input:checked ~ label {
+  color: var(--star-color); 
+}
+
+.star-rating input:checked ~ input ~ label {
+  color: var(--star-color);
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: var(--primary-color); 
+}
+
+
+.add-movie-btn, .remove-movie-btn, .quick-add-button, .priority-high, .priority-medium, .priority-low, .update-times-watched-btn {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 0.8rem;
+  width: calc(100% - 2rem);
+  box-sizing: border-box; 
+}
+
+.add-movie-btn:hover, .remove-movie-btn:hover, .quick-add-button:hover, .priority-high:hover, .priority-medium:hover, .priority-low:hover, .update-times-watched-btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.add-movie-btn, .priority-high, .priority-medium, .priority-low, .priority-high {
+  position: relative;
+  margin-bottom: 0.8rem; 
+}
+
+.quick-add-button {
+  margin-top: 0.8rem;
+}
+
+.remove-movie-btn {
+  position: relative;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
